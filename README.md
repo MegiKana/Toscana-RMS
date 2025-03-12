@@ -1,5 +1,6 @@
 # Project Overview – Toscana RMS
 Our project focuses on designing and analyzing a Restaurant Management System to improve efficiency in managing restaurant operations. The system will cover key aspects such as table reservations, order management, employee scheduling, inventory tracking, and financial reporting. Our goal is to create a structured and optimized workflow that ensures smooth service, cost efficiency, and customer satisfaction. 
+
 	•	Customer Experience:
 We begin with a module that tracks customer interactions—from making reservations or walking in, being seated, and placing orders. This module visually connects customers to table management and front-of-house operations.
 	•	Order and Kitchen Workflow:
