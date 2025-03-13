@@ -17,3 +17,34 @@ Graphical representations will depict the organization of staff roles (waiters, 
 A dedicated module will display the connection between daily sales, costs, and overall revenue through simple charts and tables.
 
 This concise visual framework ensures our system reflects the restaurant’s operational flow, providing a clear, organized picture of how all components interact to enhance efficiency and customer satisfaction.
+
+Toscana RMS Requirements
+
+Functional Requirements
+
+Customer Experience:
+Real-time table reservations and occupancy tracking.
+Seamless management of walk-ins and customer preferences.
+
+Order and Kitchen Workflow:
+Real-time order input, updates, and communication with the kitchen.
+Support for order prioritization and modification.
+
+Inventory and Menu Control:
+Track ingredient usage, low-stock alerts, and supplier details.
+Link menu items to ingredients with seamless updates.
+
+Employee Management:
+Role-based access and scheduling.
+Performance tracking for staff roles.
+
+Financial Reporting:
+Daily sales, cost, and revenue reports with visual analytics.
+Real-time tracking of profits and operational costs.
+
+Non-Functional Requirements
+Usability: Intuitive interface and mobile compatibility.
+Scalability: Efficient for small to large operations.
+Security: Role-based access and data encryption.
+Integration: Third-party payment and reservation platforms.
+Performance: Fast updates and reliable uptime.
