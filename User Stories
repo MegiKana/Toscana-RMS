@@ -1,0 +1,26 @@
+User Stories
+Table Reservations
+
+As a customer, I want to book a table online so that I can secure my spot in advance.
+
+As a manager, I want to view and update reservations so that I can manage table availability.
+
+Order Management
+
+As a waiter, I want to input orders digitally so that the kitchen can receive them in real-time.
+
+As a chef, I want to update order statuses so that waiters know when dishes are ready.
+
+Inventory Tracking
+
+As a manager, I want to monitor inventory levels so that I can restock items before they run out.
+
+As a chef, I want low-stock alerts so that I can plan dishes accordingly.
+
+Financial Reporting
+
+As a manager, I want to generate daily sales reports so that I can analyze performance and revenue.
+
+Employee Scheduling
+
+As an admin, I want to assign shifts to employees so that staffing is optimized.
