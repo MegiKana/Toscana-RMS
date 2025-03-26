@@ -1,19 +1,42 @@
 User Stories
 
-1.Table Reservations
+1.Table Reservations:
 -As a customer, I want to book a table online so that I can secure my spot in advance.
 -As a manager, I want to view and update reservations so that I can manage table availability.
+-As a customer, I want to receive confirmation and reminders for my reservation so that I don't forget my booking.
+-As a customer, I want to specify special requests (e.g., dietary preferences or celebrations) while booking so that my needs are met.
 
-2.Order Management
+2.Order Management:
 -As a waiter, I want to input orders digitally so that the kitchen can receive them in real-time.
 -As a chef, I want to update order statuses so that waiters know when dishes are ready.
+-As a waiter, I want to modify or cancel an order after it's been placed so that I can accommodate customer changes.
+-As a manager, I want to track order processing times so that I can identify and resolve bottlenecks.
 
-3.Inventory Tracking
+3.Inventory Tracking:
 -As a manager, I want to monitor inventory levels so that I can restock items before they run out.
 -As a chef, I want low-stock alerts so that I can plan dishes accordingly.
+-As a manager, I want to generate reports on inventory usage so that I can reduce waste and optimize costs.
+-As a supplier, I want to receive automatic purchase orders when stock is low so that I can ensure timely delivery.
 
-4.Financial Reporting
+4.Financial Reporting:
 -As a manager, I want to generate daily sales reports so that I can analyze performance and revenue.
+-As an owner, I want to view profit and loss summaries so that I can track the financial health of the restaurant.
+-As a manager, I want to compare weekly or monthly sales trends so that I can identify peak performance periods.
+-As a manager, I want to view analytics on popular menu items so that I can plan promotions effectively.
 
-5.Employee Scheduling
+5.Employee Scheduling:
 -As an admin, I want to assign shifts to employees so that staffing is optimized.
+-As an employee, I want to view my shifts in advance so that I can plan my personal schedule accordingly.
+-As an employee, I want to request shift swaps or adjustments so that I can balance work and personal obligations.
+-As a manager, I want to track employee attendance so that I can ensure shifts are covered and payroll is accurate.
+
+6.Customer Feedback:
+-As a customer, I want to provide feedback about my dining experience so that I can share my thoughts with the restaurant.
+-As a manager, I want to track customer feedback so that I can address issues and improve service quality.
+-As a customer, I want to rate dishes so that others can see recommendations and I can influence future menu offerings.
+
+7.Payment and Billing:
+-As a customer, I want to split the bill among multiple people so that I can pay only my share.
+-As a cashier, I want to process multiple payment methods (cash, card, and digital wallets) so that I can cater to customer preferences.
+-As a manager, I want to track pending bills or disputes so that they can be resolved quickly.
+
