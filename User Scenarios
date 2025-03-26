@@ -1,0 +1,16 @@
+User Scenarios
+
+1.Table Reservations:
+  A customer opens the app, selects the "Reserve Table" option, chooses a time, and confirms the reservation. The system updates the availability and sends a confirmation email.
+
+2.Order Management:
+  A waiter inputs a customer’s order via the tablet, which is sent to the kitchen. The chef updates the order status to "In Progress" and then "Ready." The waiter gets notified and serves the dish.
+
+3.Inventory Tracking:
+  The system detects that an ingredient is below the set threshold and sends a notification to the manager to reorder. The manager views the inventory report and places a new order with the supplier.
+
+3.Financial Reporting:
+  At the end of the day, the manager generates a sales report via the system. It includes total revenue, popular menu items, and the day’s profits, which are exported as a PDF.
+
+4.Employee Scheduling:
+  The admin logs in, assigns shifts for the next week, and sends notifications to all staff. Staff can view their schedules in the app and request changes if needed.
