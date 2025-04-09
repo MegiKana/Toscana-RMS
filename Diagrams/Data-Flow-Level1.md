@@ -1,4 +1,4 @@
-# Data Flow Diagram for Restaurant Management System
+# Data Flow Diagram Level 1
 
 ```mermaid
 flowchart TD
