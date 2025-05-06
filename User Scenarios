@@ -1,48 +1,59 @@
-User Scenarios
+1.	Scenario 1: Make a Reservation
+	•	Actor: Customer
+	•	Scenario: A customer logs into the system, selects a date and time for their reservation, and confirms the details. The system stores the reservation and sends a confirmation.
 
-1.Table Reservations:
--A customer opens the app, selects the "Reserve Table" option, chooses a time and date, and confirms the reservation. The system updates table availability and sends a confirmation email or SMS.
--If the customer needs to modify the reservation, they can do so through the app. The system adjusts the availability and notifies staff of the update.
--The manager can view a dashboard showing current and upcoming reservations, including customer special requests.
+	2.	Scenario 2: Check Table Availability
+	•	Actor: System
+	•	Scenario: After a customer selects a reservation date, the system checks the availability of tables for the selected time and informs the customer if a table is available.
 
-2.Order Management:
--A waiter inputs a customer’s order via a tablet, which is sent to the kitchen system. The chef updates the order status to "In Progress" and then "Ready." The waiter receives a notification and serves the dish.
--For large group orders, the system automatically splits the order by tables or categories, ensuring accurate tracking.
--The kitchen staff can flag an issue (e.g., an unavailable ingredient), notifying the waiter to inform the customer and suggest alternatives.
+	3.	Scenario 3: Modify a Reservation
+	•	Actor: Customer, Manager
+	•	Scenario: A customer logs into the system to modify their reservation details, and the manager updates the reservation accordingly.
 
-3.Inventory Tracking:
--The system detects that an ingredient is below the set threshold and sends a notification to the manager to reorder. The manager views the inventory report, selects a supplier, and places a restocking order directly through the system.
--For automated inventory management, the system adjusts stock levels as orders are placed and items are used in the kitchen.
--If a critical ingredient is unavailable, the system highlights affected menu items and temporarily disables them for ordering until restocked.
+	4.	Scenario 4: Cancel a Reservation
+	•	Actor: Customer, Manager
+	•	Scenario: A customer or manager decides to cancel an existing reservation. The system updates the records, and the availability is refreshed.
+	
+  5.	Scenario 5: Add a Walk-In Reservation
+	•	Actor: Manager
+	•	Scenario: A manager inputs walk-in customer details into the system, and the system checks table availability. The walk-in reservation is saved.
+	
+  6.	Scenario 6: Place an Order
+	•	Actor: Customer
+	•	Scenario: A customer browses the menu, selects their items, and proceeds to checkout. The order is placed and sent to the kitchen.
+	
+  7.	Scenario 7: Input Customer Order
+	•	Actor: Waiter
+	•	Scenario: The waiter inputs a customer’s order into the system after the customer has selected their items, and the order is sent to the kitchen.
 
-4.Financial Reporting:
--At the end of the day, the manager generates a sales report that includes total revenue, popular menu items, and the day’s profits. The report can be exported as a PDF or viewed as a dashboard with charts and graphs.
--Weekly and monthly reports automatically summarize trends, helping the manager identify peak hours and high-performing staff.
--The system highlights discrepancies, such as unpaid bills or unusual payment patterns, for review.
+  8.	Scenario 8: Update Order Status
+	•	Actor: Kitchen Staff
+	•	Scenario: Kitchen staff updates the status of an order to “In Progress” or “Ready,” and the system reflects this change.
 
-5.Employee Scheduling:
--The admin logs in and assigns shifts for the upcoming week. Notifications are sent to staff via the app, and they can view or request changes to their schedules.
--The system suggests shift assignments based on employee availability and previous workload to prevent over-scheduling.
--Managers can use the system to track attendance and generate timesheets for payroll processing.
+  9.	Scenario 9: Serve an Order
+	•	Actor: Waiter
+	•	Scenario: The waiter serves the customer’s order after the kitchen staff updates the order status to “Ready.”
+	
+  10.	Scenario 10: Handle an Unavailable Item
+	•	Actor: Kitchen Staff, Waiter
+	•	Scenario: The kitchen staff flags an unavailable item, and the waiter suggests an alternative item to the customer.
 
-6.Customer Feedback and Loyalty Programs:
--After dining, customers receive an invitation to provide feedback through the app or email. They can rate their experience, leave comments, and suggest improvements.
--The system tracks loyalty points for returning customers, allowing them to redeem rewards or receive personalized promotions.
--Negative feedback automatically alerts the manager, who can respond to address the issue.
+  11.	Scenario 11: Generate Daily Report
+	•	Actor: Manager
+	•	Scenario: The manager logs into the system and generates the daily sales report for review.
+	
+  12.	Scenario 12: View Reservations
+	•	Actor: Manager
+	•	Scenario: The manager logs into the system and views the reservation dashboard, displaying all customer reservations.
+	
+  13.	Scenario 13: Notify Staff of Tasks
+	•	Actor: System
+	•	Scenario: The system automatically sends task notifications to staff when there are pending tasks or deadlines to be met.
 
-7.Food Delivery Integration:
--Customers place an order through a third-party delivery platform. The system integrates with the platform to receive the order details and updates the kitchen workflow.
--Delivery partners receive real-time updates about order preparation and expected delivery time.
--For in-house delivery, customers can track the status of their order and the delivery driver’s location.
-
-8.Menu Updates:
--The manager updates the menu to reflect seasonal dishes or promotions. The system ensures changes are instantly reflected in the app and point-of-sale terminals.
--Menu items can be tagged with dietary details (e.g., gluten-free, vegan), helping customers make informed choices.
-
-9.Task Notifications:
--The system sends automatic alerts to staff for pending tasks such as unpaid bills, delayed orders, or missed cleaning schedules.
--Managers receive notifications about upcoming maintenance requirements or scheduled inspections.
-
-10.Multi-Language Support:
--Customers and staff can switch the interface to their preferred language, ensuring accessibility for international users.
--Menus and order screens display translations, making it easier to cater to diverse customer bases.
+  14.	Scenario 14: Redeem Loyalty Rewards
+	•	Actor: Customer
+	•	Scenario: A customer with accumulated loyalty points logs into the system and redeems them for rewards such as discounts or special offers.
+	
+  15.	Scenario 15: Process Delivery Order
+	•	Actor: System
+	•	Scenario: The system processes a customer’s delivery order, sends the order details to the kitchen, and updates the delivery status.
