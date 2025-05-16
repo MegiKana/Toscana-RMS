@@ -2,8 +2,7 @@ Class Diagram
 ```mermaid
 classDiagram
 
-%% === Entities with Attributes ===
-
+%% ==== MAIN ACTORS ====
 class Customer {
   +String customerID
   +String name
@@ -11,12 +10,17 @@ class Customer {
   +String phone
   +String preferences
   +int loyaltyPoints
+  +placeReservation()
+  +placeOrder()
+  +giveFeedback()
 }
 
 class Reservation {
   +String reservationID
   +String status
-  +DateTime dateTime
+  +String dateTime
+  +makeReservation()
+  +cancelReservation()
 }
 
 class Table {
@@ -24,27 +28,31 @@ class Table {
   +int tableNumber
   +int seats
   +String location
+  +assignReservation()
+}
+
+class Feedback {
+  +String feedbackID
+  +String content
+  +rateExperience()
 }
 
 class Order {
   +String orderID
-  +DateTime dateTime
-}
-
-class MenuItem {
-  +String menuItemID
-  +String name
-  +String description
-  +float price
+  +String dateTime
+  +placeOrder()
+  +calculateTotal()
 }
 
 class OrderItem {
   +int quantity
 }
 
-class Feedback {
-  +String feedbackID
-  +String content
+class MenuItem {
+  +String menuItemID
+  +String name
+  +double price
+  +String description
 }
 
 class Waiter {
@@ -53,6 +61,7 @@ class Waiter {
   +String email
   +String phone
   +String role
+  +serveOrder()
 }
 
 class KitchenStaff {
@@ -60,55 +69,62 @@ class KitchenStaff {
   +String name
   +String role
   +String shiftDetails
-}
-
-class Payment {
-  +String paymentID
-  +String method
-  +float amount
+  +prepareItem()
 }
 
 class Manager {
   +String managerID
   +String name
   +String contactInfo
+  +overseeOperations()
+}
+
+class Payment {
+  +String paymentID
+  +double amount
+  +String method
+  +String dateTime
+  +makePayment()
 }
 
 class Supplier {
   +String supplierID
   +String name
   +String contactInfo
+  +supplyItems()
 }
 
 class Inventory {
   +String inventoryID
   +String itemName
   +int quantity
-  +Date lastUpdate
-  +int reorder
+  +String lastUpdate
+  +int reorderLevel
+  +updateInventory()
 }
 
+%% ==== RELATIONSHIPS ====
+Customer "1" --> "*" Reservation : makes
+Customer "1" --> "*" Feedback : gives
+Customer "1" --> "*" Order : places
+Reservation "1" --> "1" Table : assignedTo
+Reservation "1" --> "1" Customer : by
+Order "1" --> "*" OrderItem : contains
+OrderItem "*" --> "1" MenuItem : includes
+Order "1" --> "1" Waiter : servedBy
+Order "1" --> "1" Payment : paidWith
+Feedback "1" --> "1" Customer : by
+Inventory "1" --> "1" Supplier : suppliedBy
+Inventory "1" --> "*" MenuItem : usedFor
+KitchenStaff "1" --> "*" MenuItem : prepares
+Manager "1" --> "*" Payment : oversees
+Manager "1" --> "*" Staff : manages
 
-%% === Relationships from ERD ===
-
-Customer "1" --> "0..*" Reservation : makes
-Reservation "1" --> "1" Customer : made by
-Reservation "1" --> "1" Table : assigned
-Customer "1" --> "0..*" Order : places
-Order "1" --> "1" Customer : belongs to
-Order "1" --> "0..*" OrderItem : contains
-MenuItem "1" --> "0..*" OrderItem : appears in
-OrderItem "1" --> "1" Order : part of
-OrderItem "1" --> "1" MenuItem : for item
-Order "1" --> "1" Payment : paid by
-Order "1" --> "0..1" Feedback : rated by
-Feedback "1" --> "1" Customer : given by
-Feedback "1" --> "1" Order : about
-Order "1" --> "1" Waiter : served by
-KitchenStaff "1" --> "0..*" MenuItem : prepares
-MenuItem "0..*" --> "1" KitchenStaff : prepared by
-Manager "1" --> "0..*" Waiter : oversees
-Inventory "1" --> "0..*" MenuItem : supplies
-Inventory "1" --> "1" Supplier : supplied by
-Supplier "1" --> "0..*" Inventory : provides
-
+%% Optional abstraction if desired
+class Staff {
+  +String staffID
+  +String name
+  +String role
+}
+Staff <|-- Waiter
+Staff <|-- KitchenStaff
