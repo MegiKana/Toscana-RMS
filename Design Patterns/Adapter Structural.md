@@ -1,5 +1,5 @@
 # Adapter – Toscana RMS
-
+This diagram shows how we adapt an old kitchen screen interface to match the modern kitchen display interface . 
 ```mermaid
 classDiagram
     class KitchenCoordinator {
