@@ -1,161 +1,114 @@
 Class Diagram 
 ```mermaid
 classDiagram
-direction LR
-%% === Customer and Reservation System ===
+
+%% === Entities with Attributes ===
+
 class Customer {
-    +String name
-    +String phone
-    +String email
-    +makeReservation()
-    +modifyReservation()
-    +cancelReservation()
-    +makeOrder()
-    +redeemLoyaltyPoints()
-    +provideFeedback()
+  +String customerID
+  +String name
+  +String email
+  +String phone
+  +String preferences
+  +int loyaltyPoints
 }
 
 class Reservation {
-    +int reservationId
-    +Date date
-    +Time time
-    +int tableNumber
-    +String status
-    +confirmReservation()
-    +updateReservation()
-    +cancelReservation()
+  +String reservationID
+  +String status
+  +DateTime dateTime
 }
 
 class Table {
-    +int tableNumber
-    +int capacity
-    +boolean isAvailable
-    +checkAvailability()
-}
-
-class LoyaltyReward {
-    +int points
-    +String rewardType
-    +redeem()
-}
-
-Customer "1" --> "0..*" Reservation : makes
-Reservation "1" --> "1" Table : assigned to
-Customer "1" --> "0..1" LoyaltyReward : earns
-
-%% === Ordering and Kitchen Workflow ===
-class MenuItem {
-    +int itemId
-    +String name
-    +double price
-    +boolean available
+  +String tableID
+  +int tableNumber
+  +int seats
+  +String location
 }
 
 class Order {
-    +int orderId
-    +DateTime time
-    +double totalPrice
-    +placeOrder()
-    +splitGroupOrder()
+  +String orderID
+  +DateTime dateTime
+}
+
+class MenuItem {
+  +String menuItemID
+  +String name
+  +String description
+  +float price
 }
 
 class OrderItem {
-    +int quantity
-    +double subtotal
+  +int quantity
+}
+
+class Feedback {
+  +String feedbackID
+  +String content
 }
 
 class Waiter {
-    +String name
-    +inputOrder()
-    +serveOrder()
-    +suggestAlternative()
+  +String waiterID
+  +String name
+  +String email
+  +String phone
+  +String role
 }
 
 class KitchenStaff {
-    +String name
-    +updateOrderStatus()
-    +flagUnavailableItem()
+  +String staffID
+  +String name
+  +String role
+  +String shiftDetails
 }
 
-Customer "1" --> "0..*" Order : places
-Order "1" -- "1.." OrderItem : composed of
-OrderItem "1" --> "1" MenuItem : refers to
-Waiter "1" --> "0..*" Order : manages
-KitchenStaff "1" --> "0..*" Order : updates
-
-%% === Inventory and Stock ===
-class InventoryItem {
-    +int itemId
-    +String name
-    +int quantity
-    +String supplier
-    +updateStockLevel()
-    +checkLowStock()
-}
-
-class InventoryReport {
-    +generateDailyReport()
-    +generateWeeklyReport()
-}
-
-class RestockOrder {
-    +int orderId
-    +Date orderDate
-    +placeRestockingOrder()
+class Payment {
+  +String paymentID
+  +String method
+  +float amount
 }
 
 class Manager {
-    +String name
+  +String managerID
+  +String name
+  +String contactInfo
 }
 
-Manager "1" --> "0..*" InventoryReport : views
-Manager "1" --> "0..*" RestockOrder : places
-InventoryItem "1" --> "0..*" RestockOrder : triggers
-
-%% === Employee Management ===
-class Employee {
-    +String name
-    +String role
+class Supplier {
+  +String supplierID
+  +String name
+  +String contactInfo
 }
 
-class Shift {
-    +Date date
-    +Time startTime
-    +Time endTime
-    +assignShift()
+class Inventory {
+  +String inventoryID
+  +String itemName
+  +int quantity
+  +Date lastUpdate
+  +int reorder
 }
 
-class Admin {
-    +assignShifts()
-    +reviewScheduleChange()
-}
 
-class Staff {
-    +requestScheduleChange()
-}
+%% === Relationships from ERD ===
 
-Admin "1" --> "0..*" Shift : assigns
-Staff "1" --> "0..*" Shift : requests
-Manager "1" --> "0..*" Employee : manages
-Manager "1" --> "0..*" Shift : tracks
+Customer "1" --> "0..*" Reservation : makes
+Reservation "1" --> "1" Customer : made by
+Reservation "1" --> "1" Table : assigned
+Customer "1" --> "0..*" Order : places
+Order "1" --> "1" Customer : belongs to
+Order "1" --> "0..*" OrderItem : contains
+MenuItem "1" --> "0..*" OrderItem : appears in
+OrderItem "1" --> "1" Order : part of
+OrderItem "1" --> "1" MenuItem : for item
+Order "1" --> "1" Payment : paid by
+Order "1" --> "0..1" Feedback : rated by
+Feedback "1" --> "1" Customer : given by
+Feedback "1" --> "1" Order : about
+Order "1" --> "1" Waiter : served by
+KitchenStaff "1" --> "0..*" MenuItem : prepares
+MenuItem "0..*" --> "1" KitchenStaff : prepared by
+Manager "1" --> "0..*" Waiter : oversees
+Inventory "1" --> "0..*" MenuItem : supplies
+Inventory "1" --> "1" Supplier : supplied by
+Supplier "1" --> "0..*" Inventory : provides
 
-%% === Feedback and Reports ===
-class Feedback {
-    +String comments
-    +int rating
-    +DateTime submittedOn
-}
-
-Customer "1" --> "0..*" Feedback : submits
-
-%% === System and Notification ===
-class System {
-    +checkTableAvailability()
-    +sendNotification()
-    +processDeliveryOrder()
-    +highlightPaymentIssues()
-}
-
-System --> Table : checks availability
-System --> Staff : notifies
-System --> Order : processes delivery
