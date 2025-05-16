@@ -1,4 +1,4 @@
-Object Diagram
+# Object Diagram
 ```mermaid
 classDiagram
     class Customer {
